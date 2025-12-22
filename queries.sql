@@ -1,8 +1,44 @@
-CREATE TABLE users (
-    user_id SERIAL PRIMARY KEY,
-    role VARCHAR(20) CHECK (role IN ('Admin', 'Customer')),
-    name VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    phone VARCHAR(20)
+
+--  ##CREATE USERS TABLE####
+
+create table users(
+  user_id serial primary key,
+  role varchar(50) check (role in('Admin','Customer')) default 'Customer',
+  name varchar(100) not null,
+  email varchar(100) unique not null ,
+  password varchar(150) not null,
+  phone varchar(20)
 );
+
+-- CREATE VEHICLES TABLE-----------
+
+
+create table vehicles (
+  vehicle_id serial primary key,
+  name varchar(100) not null,
+  type varchar(50) check(type in ('car','bike','truck')),
+  model varchar(100) ,
+  registration_number varchar(100) unique not null,
+  rental_price numeric(10,2) not null,
+  status varchar(50) check(status in ('available','rented','maintenance'))
+);
+
+
+-- https://lucid.app/publicSegments/view/90242841-33d8-4881-a917-b380e12ef8d4
+
+-- CREATE BOOKINGS TABLE----------------
+
+create table bookings(
+  booking_id serial primary key,
+  user_id integer references users(user_id),
+  vehicle_id integer references vehicles(vehicle_id),
+  start_date date,
+  end_date date,
+  status varchar(50) check(status in ('completed','confirmed','pending','cancelled')),
+  total_cost numeric(10,2)
+);
+
+-- Retrieve booking information along with Customer name and Vehicle name.
+
+
+
