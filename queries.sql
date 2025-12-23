@@ -43,16 +43,16 @@ insert into vehicles(name,type,model,registration_number,rental_price,status) VA
 
 
 
---https://lucid.app/publicSegments/view/5b0827be-41ac-48cd-b0b2-fc44a9af8bbc
+
 
 -- CREATE BOOKINGS TABLE----------------
 
 create table bookings(
   booking_id serial primary key,
-  user_id integer references users(user_id),
-  vehicle_id integer references vehicles(vehicle_id),
-  start_date date,
-  end_date date,
+  user_id integer not null references users(user_id),
+  vehicle_id integer not null references vehicles(vehicle_id),
+  start_date date default current_date,
+  end_date date ,
   status varchar(50) check(status in ('completed','confirmed','pending','cancelled')),
   total_cost numeric(10,2)
 );
@@ -60,7 +60,9 @@ create table bookings(
 insert into bookings(user_id,vehicle_id,start_date,end_date,status,total_cost) VALUES
 (4,1,'2025-12-24','2025-12-26','completed',120.00),
 (2,1,'2025-12-20','2025-12-22','confirmed',100.00),
-(2,3,'2025-12-25','2025-12-26','pending',20.00);
+(2,3,'2025-12-25','2025-12-26','pending',20.00),
+(1,1,'2025-12-27','2025-12-28','confirmed',60),
+(3,1,'2025-12-29','2025-12-30','confirmed',60);
 
 
 
