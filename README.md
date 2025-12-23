@@ -82,7 +82,7 @@ in frist question we are using inner join.inner join Returns only the rows where
 
 
 ## Submission Links
-GitHub Repository:https://github.com/tajul1995/assignment3_solution/tree/main
+GitHub Repository:https://github.com/tajul1995/assignment3_solution
 ERD Link: https://lucid.app/publicSegments/view/90242841-33d8-4881-a917-b380e12ef8d4
  Video Link:https://drive.google.com/file/d/1I25HoVlPNfhGkzv1hJaxz2MTdq12ogzH/view
 
