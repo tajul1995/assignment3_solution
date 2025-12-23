@@ -10,6 +10,17 @@ create table users(
   phone varchar(20)
 );
 
+insert into  users (role, name, email, password, phone) VALUES
+('Admin', 'Tajul Islam', 'tajul.admin@example.com', 'Admin@123', '01712345678'),
+('Customer', 'Rina Akter', 'rina.customer@example.com', 'Rina@123', '01898765432'),
+('Customer', 'Sajid Hossain', 'sajid.customer@example.com', 'Sajid@123', '01911223344'),
+('Customer', 'Nabila Karim', 'nabila.customer@example.com', 'Nabila@123', '01655667788'),
+('Admin', 'Rahim Uddin', 'rahim.admin@example.com', 'Rahim@123', '01599887766');
+
+
+
+
+
 -- CREATE VEHICLES TABLE-----------
 
 
@@ -23,8 +34,16 @@ create table vehicles (
   status varchar(50) check(status in ('available','rented','maintenance'))
 );
 
+insert into vehicles(name,type,model,registration_number,rental_price,status) VALUES
+('honda','bike','2024','ABC-345',50.00,'maintenance'),
+('Toyota Corolla','car','2022','ABC-123',50.00,'available'),
+('Honda Civic','car','2021','XYZ-456',45.00,'rented'),
+('Yamaha R15','bike','2023','BIK-789',20.00,'available');
 
--- https://lucid.app/publicSegments/view/90242841-33d8-4881-a917-b380e12ef8d4
+
+
+
+--https://lucid.app/publicSegments/view/5b0827be-41ac-48cd-b0b2-fc44a9af8bbc
 
 -- CREATE BOOKINGS TABLE----------------
 
@@ -37,6 +56,17 @@ create table bookings(
   status varchar(50) check(status in ('completed','confirmed','pending','cancelled')),
   total_cost numeric(10,2)
 );
+
+insert into bookings(user_id,vehicle_id,start_date,end_date,status,total_cost) VALUES
+(4,1,'2025-12-24','2025-12-26','completed',120.00),
+(2,1,'2025-12-20','2025-12-22','confirmed',100.00),
+(2,3,'2025-12-25','2025-12-26','pending',20.00);
+
+
+
+
+
+
 
 -- Retrieve booking information along with Customer name and Vehicle name.
 
